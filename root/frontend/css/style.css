@@ -1,0 +1,513 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.clickable {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.clickable:hover {
+    text-decoration: underline;
+}
+
+.expired {
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.expired::before {
+    /*content: "X";*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15rem;
+    color: rgb(189, 93, 31);
+    z-index: 1;
+}
+
+.card.expired {
+    background-color: #967e7e; /* Set background color to light red for expired cards */
+}
+
+
+
+
+
+
+/*ab hier me*/
+
+/*Überschrift: Appointmentfinder*/
+.appointments-header {
+    background-color: #365C76;
+    color: white;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+}
+
+
+
+/*1.seite -->Appointments Übersicht Tabelle
+#284541
+#652872
+#3C3789
+#365C76
+#888686
+ */
+
+
+.appointment-item {
+    background-color: #365C76;
+    border: 3px solid black;
+}
+
+
+.appointment-item:hover {
+    background-color: #365C76; /*789*/
+}
+
+
+.appointment-item > .col > div:hover {
+    background-color: #dc7019;
+}
+
+
+#appointments-container .col:hover {
+    color: #0f100f;
+    border-color: #e7d510;
+}
+
+
+
+
+/*Startseite: card:*/
+.card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+
+.appointments-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.cardfooter {
+    color: #110c07;
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    border-radius: 0 0 20px 20px;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+
+.card-footer {
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.04) translateX(2px); /*scale-> card(orange) vergrößern*/
+    transition: all 0.2s ease-in-out;
+}
+
+.card-title {
+    color: #110c07;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+
+
+
+/*AB HIER 2.Seite: appointment*/
+.table {
+    background-color: #85aecb;
+    border: thin solid white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 22px;
+}
+
+
+
+
+
+
+input[type="checkbox"] {
+    transform: scale(1.8);
+}
+
+
+input[type="text"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+
+
+/*VOTE AND BACK BUTTON*/
+
+button {
+    border-radius: 50% !important;
+    background-color: rgb(85, 157, 152);
+    color: white;
+    border: none !important;
+    padding: 30px 30px !important;
+    -webkit-transition: background-color 1s, color 1s, -webkit-transform 0.5s;
+    transition: background-color 1s, transform 0.5s;
+}
+
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    -webkit-transform: translateX(-5px);
+    -webkit-box-shadow: 5px 0px 18px 0px rgb(218, 8, 8);
+    -moz-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+    box-shadow: 5px 0px 18px 0px rgb(199, 98, 17);
+}
+
+
+
+
+/**/
+
+/*#appointment-details{
+    background-color: #a1c9e5;
+    border: 3px solid black;
+    border-radius: 20px;
+    margin-bottom: 70px;
+    padding: 20px;
+    font-size: 22px;
+    display: block;
+}
+
+#appointment-location {
+    display: block;
+}*/
+.appointment-all{
+    padding: 50px;
+    width: 1300px;
+    border-radius: 48px;
+    margin-bottom: 80px;
+    background-color: rgba(255, 255, 255, 0.91);
+    border: 2px hidden #365C76;
+    font-size: 22px;
+    -webkit-box-shadow: 5px 0px 18px 0px rgb(218, 8, 8);
+
+    -moz-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+    box-shadow: 5px 0px 18px 0px rgb(199, 98, 17);
+
+}
+
+
+.appointment-all:hover {
+
+    border: 3px solid #365C76;
+    box-shadow: 5px 0px 18px 0px rgb(199, 98, 17);
+    -webkit-box-shadow: 5px 0px 18px 0px rgb(47, 128, 123);
+    -moz-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+
+
+}
+
+
+.appointment-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #110c07;
+    display: block;
+}
+
+
+
+
+/*appointment comment*/
+input[name="comment"] {
+    border: 2px groove #dc7019;
+    color: #dc7019;
+}
+
+
+
+.appointment-comments{
+    width: 350px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    width: 350px;
+
+    font-weight: 500;
+}
+
+
+
+
+
+/*CHECKBOX*/
+.checkbox-wrapper-30 .checkbox {
+    --bg: #fff;
+    --brdr: #d1d6ee;
+    --brdr-actv: #1e2235;
+    --brdr-hovr: #bbc1e1;
+    --dur: calc((var(--size, 2)/2) * 0.6s);
+    display: inline-block;
+    width: calc(var(--size, 1) * 22px);
+    position: relative;
+}
+.checkbox-wrapper-30 .checkbox:after {
+    content: "";
+    width: 100%;
+    padding-top: 100%;
+    display: block;
+}
+.checkbox-wrapper-30 .checkbox > * {
+    position: absolute;
+}
+.checkbox-wrapper-30 .checkbox input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg);
+    border-radius: calc(var(--size, 1) * 4px);
+    border: calc(var(--newBrdr, var(--size, 1)) * 1px) solid;
+    color: var(--newBrdrClr, var(--brdr));
+    outline: none;
+    margin: 0;
+    padding: 0;
+    transition: all calc(var(--dur) / 3) linear;
+}
+.checkbox-wrapper-30 .checkbox input:hover,
+.checkbox-wrapper-30 .checkbox input:checked {
+    --newBrdr: calc(var(--size, 1) * 2);
+}
+.checkbox-wrapper-30 .checkbox input:hover {
+    --newBrdrClr: var(--brdr-hovr);
+}
+.checkbox-wrapper-30 .checkbox input:checked {
+    --newBrdrClr: var(--brdr-actv);
+    transition-delay: calc(var(--dur) /1.3);
+}
+.checkbox-wrapper-30 .checkbox input:checked + svg {
+    --dashArray: 16 93;
+    --dashOffset: 109;
+}
+.checkbox-wrapper-30 .checkbox svg {
+    fill: none;
+    left: 0;
+    pointer-events: none;
+    stroke: var(--stroke, var(--border-active));
+    stroke-dasharray: var(--dashArray, 93);
+    stroke-dashoffset: var(--dashOffset, 94);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    top: 0;
+    transition: stroke-dasharray var(--dur), stroke-dashoffset var(--dur);
+}
+.checkbox-wrapper-30 .checkbox svg,
+.checkbox-wrapper-30 .checkbox input {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/*
+.fade-in-text {
+    font-family: Arial;
+    animation: fadeIn 15s;
+}
+*/
+
+.header-bar {
+    position: relative;
+    width: 50%;
+    min-width: 300px;
+    height: 50px;
+    border: 10px solid transparent;
+    border-top: 10px solid #dc7019;
+    border-left: 10px solid #b0164c;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+
+.header-bar::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30%;
+    height: 49px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #fffa;
+    border-right: 10px solid #fffa;
+    transition: 0.3s linear all;
+}
+.header-bar > .logo {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 10px;
+    transform: translateY(-50%);
+    color: #110c07;
+    font-family: 'Parisienne', cursive;
+    cursor: default;
+    user-select: none;
+}
+
+
+.logo{
+    font-family: 'Leckerli One', cursive;
+}
+
+add-date-button{
+    font-size: large;
+}
+
+
+
+.add-date{
+    font-family: 'Leckerli One', cursive;
+    font-size: 10px;
+    color: #110c07;
+    background-color: #85aecb;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 1px;
+    border: 2px solid #110c07;
+}
+
+
+
+
+
+
+.newApp-btn{
+    font-family: 'Leckerli One', cursive;
+    font-size: 16px;
+    color: #110c07;
+    background-color: #dc7019;
+    border: 2px solid #110c07;
+    top: 25%;
+    left: 45%;
+
+}
+
+
+/*maybe */
+.calendar-cell {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+tr:hover {background-color: rgb(236, 233, 230);}
+th{
+   color: #110c07;
+}
+tr{
+    background-color: #ece9e6;
+}
+tr:nth-child(even) {
+    background-color: #dc7019;
+
+}
+
+
+/*TABLE*/
+/*.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #f3eded;
+}
+*/
+
+::-webkit-input-placeholder {
+    font-weight: 600;
+}
+
+
+/*
+#add-date-button::before {
+    position:relative;
+    border: 1px dotted #110c07;
+    width: 3px;
+    height: 3px;
+    background-color: black;
+    box-sizing: border-box;
+    transform: scale(11);
+}*/
+
+
+
+.plus {
+    display:inline-block;
+    width:50px;
+    height:50px;
+    font-size: large;
+    border: #0c5460;
+
+    background:
+            linear-gradient(#365C76 0 0),
+            linear-gradient(#365C76 0 0),
+            black;
+    background-position:center;
+    background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+
+    -webkit-box-shadow: 5px 0px 18px 0px rgb(218, 8, 8);
+    -moz-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+    box-shadow: 5px 0px 18px 0px rgb(199, 98, 17);
+}
+
+.alt {
+    background:
+            linear-gradient(#000 0 0),
+            linear-gradient(#000 0 0);
+    background-position:center;
+    background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+    border: 3px solid #365C76;
+}
+
+
