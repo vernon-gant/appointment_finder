@@ -14,6 +14,9 @@
 use Laravel\Lumen\Routing\Router;
 
 /** @var Router $router */
+$router->get('/', function () use ($router) {
+    return $router->app->version();
+});
 
 // Appointment routes
 $router->group(['prefix' => 'appointments'], function () use ($router) {

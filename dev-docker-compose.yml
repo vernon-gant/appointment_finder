@@ -1,0 +1,38 @@
+version: '3'
+
+networks:
+  internal:
+    driver: bridge
+
+services:
+  nginx:
+    build:
+      context: backend/docker/dev/nginx
+    container_name: nginx
+    networks:
+      - internal
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "80:80"
+  php-fpm:
+    build:
+      context: backend/docker/dev/php-fpm
+    container_name: php-fpm
+    networks:
+      - internal
+    tty: true
+    volumes:
+      - ./:/var/www/html
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    networks:
+      - internal
+    volumes:
+      - ./backend/docker/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: appointment_finder
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "3306:3306"

@@ -88,6 +88,9 @@ class AppointmentService
         } catch (AppointmentNotSavedException|AppointmentDatesNotSavedException $e) {
             DB::rollback();
             throw $e;
+        } catch (Exception) {
+            DB::rollback();
+            throw new AppointmentNotSavedException('Failed to save the appointment. All changes have been rolled back.');
         }
     }
 

@@ -30,8 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-		DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        Schema::dropIfExists('appointment_dates');
-		DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+            Schema::dropIfExists('appointment_dates');
+            DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        }
     }
 };

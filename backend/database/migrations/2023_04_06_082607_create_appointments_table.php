@@ -25,9 +25,11 @@ return new class extends Migration {
 	 * Reverse the migrations.
 	 */
 	public function down() {
-		DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-		Schema::dropIfExists('appointments');
-		DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+            Schema::dropIfExists('appointments');
+            DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        }
 	}
 
 };
