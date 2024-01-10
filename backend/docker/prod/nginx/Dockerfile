@@ -1,3 +1,5 @@
 FROM nginx:latest
 
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY . /var/www/html
+
+COPY ./docker/prod/nginx/default.conf /etc/nginx/conf.d/default.conf
