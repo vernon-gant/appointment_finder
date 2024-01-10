@@ -5,8 +5,6 @@ stages:
   - deploy
 
 variables:
-  DOCKER_HUB_USERNAME: $DOCKER_HUB_USERNAME
-  DOCKER_HUB_ACCESS_TOKEN: $DOCKER_HUB_ACCESS_TOKEN
   FRONTEND_IMAGE_TAG: "$DOCKER_HUB_USERNAME/frontend:$CI_COMMIT_REF_SLUG"
   BACKEND_IMAGE_TAG: "$DOCKER_HUB_USERNAME/backend:$CI_COMMIT_REF_SLUG"
   NGINX_IMAGE_TAG: "$DOCKER_HUB_USERNAME/nginx:$CI_COMMIT_REF_SLUG"
@@ -41,6 +39,7 @@ variables:
 #    - branches
 
 before_script:
+  - echo "$DOCKER_HUB_USERNAME"
   - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
 
 build_frontend:
