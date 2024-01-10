@@ -69,9 +69,9 @@ before_script:
 
 build_backend:
   stage: build
-  image: docker:stable
+  image: docker:24.0.7
   services:
-    - docker:stable-dind
+    - docker:24.0.7-dind
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVER: overlay2
