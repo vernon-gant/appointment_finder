@@ -69,9 +69,9 @@ build_nginx:
 
 build_backend:
   stage: build
-  image: docker:stable
+  image: docker:latest
   services:
-    - docker:stable-dind
+    - docker:latest-dind
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_DRIVER: overlay2
