@@ -7,6 +7,8 @@ stages:
 variables:
   PHP_VERSION: "8.1"
   DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_DRIVER: "overlay2"
+  DOCKER_TLS_CERTDIR: ""
   DOCKER_VERSION: "24.0.7"
   DOCKER_IN_DOCKER_IMAGE: "docker:${DOCKER_VERSION}-dind"
   FRONTEND_IMAGE_TAG: "$DOCKER_HUB_USERNAME/frontend:$CI_COMMIT_REF_SLUG"
@@ -47,10 +49,6 @@ build_frontend:
   image: docker:${DOCKER_VERSION}
   services:
     - $DOCKER_IN_DOCKER_IMAGE
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
   before_script:
     - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   script:
@@ -63,10 +61,6 @@ build_nginx:
   image: docker:${DOCKER_VERSION}
   services:
     - $DOCKER_IN_DOCKER_IMAGE
-  variables:
-    DOCKER_HOST: $DOCKER_HOST
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
   before_script:
     - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   script:
@@ -79,10 +73,6 @@ build_backend:
   image: docker:${DOCKER_VERSION}
   services:
     - $DOCKER_IN_DOCKER_IMAGE
-  variables:
-    DOCKER_HOST: $DOCKER_HOST
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
   before_script:
     - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   script:
