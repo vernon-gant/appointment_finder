@@ -82,5 +82,5 @@ build_backend:
     DOCKER_TLS_CERTDIR: ""
   script:
     - cd backend
-    - docker build -t $BACKEND_IMAGE_TAG ./docker/prod/php-fpm
+    - docker build -t $BACKEND_IMAGE_TAG -f ./docker/prod/php-fpm/Dockerfile .
     - docker push $BACKEND_IMAGE_TAG
