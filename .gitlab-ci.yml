@@ -54,7 +54,20 @@ before_script:
 #    - docker build -t $FRONTEND_IMAGE_TAG ./frontend/
 #    - docker push $FRONTEND_IMAGE_TAG
 
-build_nginx:
+#build_nginx:
+#  stage: build
+#  image: docker:stable
+#  services:
+#    - docker:stable-dind
+#  variables:
+#    DOCKER_HOST: tcp://docker:2375
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_TLS_CERTDIR: ""
+#  script:
+#    - docker build -t $NGINX_IMAGE_TAG ./backend/docker/prod/nginx
+#    - docker push $NGINX_IMAGE_TAG
+
+build_backend:
   stage: build
   image: docker:stable
   services:
@@ -64,18 +77,6 @@ build_nginx:
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
   script:
-    - docker build -t $NGINX_IMAGE_TAG ./backend/docker/prod/nginx
-    - docker push $NGINX_IMAGE_TAG
-
-build_backend:
-  stage: build
-  image: docker:latest
-  services:
-    - docker:latest-dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-  script:
+    - docker info
     - docker build -t $BACKEND_IMAGE_TAG ./backend/docker/prod/php-fpm
     - docker push $BACKEND_IMAGE_TAG
