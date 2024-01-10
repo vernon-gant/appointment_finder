@@ -39,7 +39,6 @@ variables:
 #    - branches
 
 before_script:
-  - echo "$DOCKER_HUB_USERNAME"
   - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
 
 build_frontend:
@@ -47,6 +46,10 @@ build_frontend:
   image: docker:stable
   services:
     - docker:stable-dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
   script:
     - docker build -t $FRONTEND_IMAGE_TAG ./frontend/
     - docker push $FRONTEND_IMAGE_TAG
