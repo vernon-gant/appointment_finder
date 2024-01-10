@@ -5,4 +5,4 @@ export const form = document.getElementById('appointment-form');
 
 export const toggleFormButton=document.getElementById('toggleForm');
 
-export const apiUrl = 'http://nginx:8080';
+export const apiUrl = 'http://54.85.178.50:8080';
