@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4653d5e0959c719c5827012ee343623b",
+    "content-hash": "45b2704c902944a78097056a14db26c0",
     "packages": [
         {
             "name": "brick/math",
@@ -2628,6 +2628,67 @@
                 "source": "https://github.com/nikic/FastRoute/tree/master"
             },
             "time": "2018-02-13T20:26:39+00:00"
+        },
+        {
+            "name": "nordsoftware/lumen-cors",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digiaonline/lumen-cors.git",
+                "reference": "61de716f695aae241ca5cfad3e20fc5a91b9b2a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digiaonline/lumen-cors/zipball/61de716f695aae241ca5cfad3e20fc5a91b9b2a9",
+                "reference": "61de716f695aae241ca5cfad3e20fc5a91b9b2a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.2",
+                "codeception/specify": "^0.4",
+                "codeception/verify": "^0.3",
+                "laravel/lumen-framework": "^5.4",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpstan/phpstan": "^0.10.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nord\\Lumen\\Cors\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoffer Niska",
+                    "email": "christofferniska@gmail.com"
+                }
+            ],
+            "description": "CORS module for the Lumen PHP framework.",
+            "keywords": [
+                "cors",
+                "cross-origin",
+                "headers",
+                "http",
+                "laravel",
+                "lumen",
+                "preflight",
+                "request",
+                "resource",
+                "sharing"
+            ],
+            "support": {
+                "issues": "https://github.com/digiaonline/lumen-cors/issues",
+                "source": "https://github.com/digiaonline/lumen-cors/tree/3.0.0"
+            },
+            "abandoned": true,
+            "time": "2018-10-15T09:17:39+00:00"
         },
         {
             "name": "nunomaduro/termwind",
