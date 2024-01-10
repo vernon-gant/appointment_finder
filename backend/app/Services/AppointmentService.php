@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\DB;
  */
 class AppointmentService
 {
-
     /**
      * Returns appointments sorted by expiration date.
      * @return Collection

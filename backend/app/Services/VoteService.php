@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\DB;
  */
 class VoteService
 {
-
     /**
      * Retrieve all votes of an appointment by appointment id.
      * @param int $appointmentId

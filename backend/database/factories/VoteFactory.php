@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * Factory for votes
  */
-class VoteFactory extends Factory {
+class VoteFactory extends Factory
+{
+    protected $model = Vote::class;
 
-	protected $model = Vote::class;
-
-	/**
-	 * @inheritDoc
-	 */
-	public function definition(): array {
-		return [
-			'user_name' => $this->faker->name,
-		];
-	}
+    /**
+     * @inheritDoc
+     */
+    public function definition(): array
+    {
+        return [
+            'user_name' => $this->faker->name,
+        ];
+    }
 }

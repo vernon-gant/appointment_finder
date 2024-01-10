@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Model for appointment dates. Used to store the dates and times of the appointments. Has own factory.
  */
-class AppointmentDate extends Model {
-	use HasFactory;
+class AppointmentDate extends Model
+{
+    use HasFactory;
 
     /**
      * Table name.
@@ -29,7 +30,8 @@ class AppointmentDate extends Model {
      * One appointment date can have many votes from users, which is the core idea of the application.
      * @return HasMany
      */
-    public function votes(): HasMany {
-		return $this->hasMany(Vote::class);
-	}
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
+    }
 }

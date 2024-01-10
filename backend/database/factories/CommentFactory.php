@@ -8,22 +8,24 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * Factory for the Comment model.
  */
-class CommentFactory extends Factory {
-	/**
-	 * The name of the factory's corresponding model.
-	 *
-	 * @var string
-	 */
-	protected $model = Comment::class;
+class CommentFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Comment::class;
 
-	/**
-	 * Define the model's default state.
-	 *
-	 * @return array
-	 */
-	public function definition() {
-		return [
-			'content' => $this->faker->sentence,
-		];
-	}
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'content' => $this->faker->sentence,
+        ];
+    }
 }

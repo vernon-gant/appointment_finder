@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Validator;
  */
 class VoteController extends Controller
 {
-
     /**
      * Added to class with Dependency Injection
      * @var VoteService

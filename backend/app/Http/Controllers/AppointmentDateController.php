@@ -12,17 +12,18 @@ use Illuminate\Http\JsonResponse;
  * Get all appointment dates of an appointment and get a specific appointment date.
  * Has injected AppointmentDateService.
  */
-class AppointmentDateController extends Controller {
-
+class AppointmentDateController extends Controller
+{
     /**
      * Added to class with Dependency Injection
      * @var AppointmentDateService
      */
     protected AppointmentDateService $appointmentDatesService;
 
-	public function __construct(AppointmentDateService $appointmentDatesService) {
-		$this->appointmentDatesService = $appointmentDatesService;
-	}
+    public function __construct(AppointmentDateService $appointmentDatesService)
+    {
+        $this->appointmentDatesService = $appointmentDatesService;
+    }
 
     /**
      * Get all appointment dates of an appointment by appointment id.
@@ -31,14 +32,15 @@ class AppointmentDateController extends Controller {
      * @param int $appointmentId
      * @return JsonResponse
      */
-    public function index(int $appointmentId): JsonResponse {
-		try {
-			$appointmentDates = $this->appointmentDatesService->getDatesOfAppointment($appointmentId);
-			return response()->json($appointmentDates);
-		} catch (AppointmentNotFoundException $e) {
-			return response()->json(['error' => $e->getMessage()], 404);
-		}
-	}
+    public function index(int $appointmentId): JsonResponse
+    {
+        try {
+            $appointmentDates = $this->appointmentDatesService->getDatesOfAppointment($appointmentId);
+            return response()->json($appointmentDates);
+        } catch (AppointmentNotFoundException $e) {
+            return response()->json(['error' => $e->getMessage()], 404);
+        }
+    }
 
     /**
      * Just utility method for getting a specific appointment date by id.
@@ -47,12 +49,13 @@ class AppointmentDateController extends Controller {
      * @param int $id
      * @return JsonResponse
      */
-    public function get(int $id): JsonResponse {
-		try {
-			$appointmentDate = $this->appointmentDatesService->getAppointmentDate($id);
-			return response()->json($appointmentDate);
-		} catch (AppointmentDateNotFoundException $e) {
-			return response()->json(['error' => $e->getMessage()], 404);
-		}
-	}
+    public function get(int $id): JsonResponse
+    {
+        try {
+            $appointmentDate = $this->appointmentDatesService->getAppointmentDate($id);
+            return response()->json($appointmentDate);
+        } catch (AppointmentDateNotFoundException $e) {
+            return response()->json(['error' => $e->getMessage()], 404);
+        }
+    }
 }

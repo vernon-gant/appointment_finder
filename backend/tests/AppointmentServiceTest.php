@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class AppointmentServiceTest extends TestCase
 {
-
     public function testGetAllAppointments()
     {
         // Arrange: create some appointments

@@ -4,6 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 
-class CommentNotDeletedException extends Exception {
-
+class CommentNotDeletedException extends Exception
+{
 }

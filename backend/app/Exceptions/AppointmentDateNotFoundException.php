@@ -4,6 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 
-class AppointmentDateNotFoundException extends Exception{
-
+class AppointmentDateNotFoundException extends Exception
+{
 }

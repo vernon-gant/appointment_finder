@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  */
 class CommentService
 {
-
     /**
      * Returns all comments of the appointment with the given id.
      * @throws AppointmentNotFoundException

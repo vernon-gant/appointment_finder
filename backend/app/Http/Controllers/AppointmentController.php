@@ -50,7 +50,8 @@ class AppointmentController extends Controller
     public function create(Request $request): JsonResponse
     {
         // Validation rules
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'title' => 'required|string',
                 'location' => 'required|string',
@@ -70,7 +71,8 @@ class AppointmentController extends Controller
                 'appointment_dates.*.date.after_or_equal' => 'Date must be equal or after today',
                 'appointment_dates.*.date.before' => 'Date must be before the expiration date',
                 'appointment_dates.*.start_time.required' => 'Start time is required',
-                'appointment_dates.*.end_time.required' => 'End time is required',]);
+                'appointment_dates.*.end_time.required' => 'End time is required',]
+        );
         if ($validator->fails()) {
             return response()->json(['message' => $validator->errors()], 400);
         }

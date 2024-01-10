@@ -6,6 +6,13 @@ require_once __DIR__.'/../vendor/autoload.php';
     dirname(__DIR__)
 ))->bootstrap();
 
+if ($_ENV['APP_ENV'] == 'production') {
+    $_ENV['DB_HOST'] = env('DB_HOST');
+    $_ENV['DB_DATABASE'] = env('DB_DATABASE');
+    $_ENV['DB_USERNAME'] = env('DB_USERNAME');
+    $_ENV['DB_PASSWORD'] = env('DB_PASSWORD');
+}
+
 date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 
 /*
@@ -23,9 +30,9 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
- $app->withFacades();
+$app->withFacades();
 
- $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -91,9 +98,9 @@ $app->configure('app');
 |
 */
 
- $app->register(App\Providers\AppServiceProvider::class);
- $app->register(App\Providers\AuthServiceProvider::class);
- $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\EventServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

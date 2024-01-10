@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-
 /**
  * Model for representing votes. Used for storing votes in the database. Has its own factory.
  */
-class Vote extends Model {
-	use HasFactory;
+class Vote extends Model
+{
+    use HasFactory;
 
     /**
      * Table name in the database.
@@ -32,16 +32,18 @@ class Vote extends Model {
      * Many votes can belong to one appointment date.
      * @return BelongsTo
      */
-    public function appointmentDate(): BelongsTo {
-		return $this->belongsTo(AppointmentDate::class);
-	}
+    public function appointmentDate(): BelongsTo
+    {
+        return $this->belongsTo(AppointmentDate::class);
+    }
 
     /**
      * ONE-TO-ONE relationship with comments table.
      * One vote can have one comment.
      * @return HasOne
      */
-    public function comment(): HasOne {
-		return $this->hasOne(Comment::class);
-	}
+    public function comment(): HasOne
+    {
+        return $this->hasOne(Comment::class);
+    }
 }
