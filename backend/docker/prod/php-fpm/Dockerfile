@@ -21,6 +21,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
+#Print working directory
+RUN pwd
+
 # Install Composer dependencies with the --no-dev flag to skip development dependencies
 RUN composer install --no-dev --optimize-autoloader
 
