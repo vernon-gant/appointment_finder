@@ -32,6 +32,7 @@ test:backend:
   before_script:
     - docker-php-ext-install pdo pdo_mysql
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - cd backend
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress
   script:
     - vendor/bin/phpunit --coverage-text --colors=never
