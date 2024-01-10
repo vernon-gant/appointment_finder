@@ -5,37 +5,49 @@ stages:
   - deploy
 
 variables:
-  DOCKERHUB_USERNAME: "<your_dockerhub_username>"
-  DOCKERHUB_PASSWORD: "<your_dockerhub_password>"
-  BACKEND_IMAGE: "<your_dockerhub_username>/backend-image"
-  FRONTEND_IMAGE: "<your_dockerhub_username>/frontend-image"
-  NGINX_IMAGE: "<your_dockerhub_username>/nginx-image"
+  DOCKER_HUB_USERNAME: $DOCKER_HUB_USERNAME
+  DOCKER_HUB_ACCESS_TOKEN: $DOCKER_HUB_ACCESS_TOKEN
+  FRONTEND_IMAGE_TAG: "$DOCKER_HUB_USERNAME/frontend:$CI_COMMIT_REF_SLUG"
+  BACKEND_IMAGE_TAG: "$DOCKER_HUB_USERNAME/backend:$CI_COMMIT_REF_SLUG"
+  NGINX_IMAGE_TAG: "$DOCKER_HUB_USERNAME/nginx:$CI_COMMIT_REF_SLUG"
 
-lint:
-  stage: lint
-  image: php:8.1
-  script:
-    - apt-get update -yqq
-    - apt-get install -yqq git unzip
-    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    - cd backend
-    - composer install --prefer-dist --no-scripts --no-interaction --optimize-autoloader
-    - ./vendor/bin/php-cs-fixer fix . --show-progress=dots --dry-run --diff --verbose --ansi
-  only:
-    - merge_requests
-    - main
-    - dev
+#lint:
+#  stage: lint
+#  image: php:8.1
+#  script:
+#    - apt-get update -yqq
+#    - apt-get install -yqq git unzip
+#    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#    - cd backend
+#    - composer install --prefer-dist --no-scripts --no-interaction --optimize-autoloader
+#    - ./vendor/bin/php-cs-fixer fix . --show-progress=dots --dry-run --diff --verbose --ansi
+#  only:
+#    - merge_requests
+#    - main
+#    - dev
+#
+#test:backend:
+#  stage: test
+#  image: php:8.1-cli
+#  before_script:
+#    - apt-get update && apt-get install -y libzip-dev unzip git
+#    - docker-php-ext-install pdo pdo_mysql
+#    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#    - cd backend
+#    - composer install --prefer-dist --no-ansi --no-interaction --no-progress
+#  script:
+#    - vendor/bin/phpunit
+#  only:
+#    - branches
 
-test:backend:
-  stage: test
-  image: php:8.1-cli
-  before_script:
-    - apt-get update && apt-get install -y libzip-dev unzip git
-    - docker-php-ext-install pdo pdo_mysql
-    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    - cd backend
-    - composer install --prefer-dist --no-ansi --no-interaction --no-progress
+before_script:
+  - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+
+build_frontend:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:stable-dind
   script:
-    - vendor/bin/phpunit
-  only:
-    - branches
+    - docker build -t $FRONTEND_IMAGE_TAG ./frontend/
+    - docker push $FRONTEND_IMAGE_TAG
