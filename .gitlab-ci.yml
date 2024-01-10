@@ -36,6 +36,6 @@ test:backend:
     - cd backend
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress
   script:
-    - vendor/bin/phpunit --coverage-text --colors=never
+    - vendor/bin/phpunit
   only:
     - branches
