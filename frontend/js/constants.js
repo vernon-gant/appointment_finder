@@ -5,4 +5,4 @@ export const form = document.getElementById('appointment-form');
 
 export const toggleFormButton=document.getElementById('toggleForm');
 
-export const apiUrl = 'http://localhost:80';
+export const apiUrl = 'http://localhost:8080';
