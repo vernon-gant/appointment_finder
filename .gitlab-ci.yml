@@ -64,8 +64,8 @@ build_nginx:
   before_script:
     - echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   script:
-    - cd backend/docker/prod/nginx
-    - docker build -t $NGINX_IMAGE_TAG .
+    - cd backend
+    - docker build -t $NGINX_IMAGE_TAG -f ./docker/prod/nginx/Dockerfile .
     - docker push $NGINX_IMAGE_TAG
 
 build_backend:
