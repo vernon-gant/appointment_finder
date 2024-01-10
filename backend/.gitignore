@@ -3,6 +3,6 @@
 Homestead.json
 Homestead.yaml
 .env
-.phpunit.result.cache
+.php*
 *.http
 /docker/mysql/
