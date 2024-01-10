@@ -20,7 +20,7 @@ lint:
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     - cd backend
     - composer install --prefer-dist --no-scripts --no-interaction --optimize-autoloader
-    - ./vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
+    - ./vendor/bin/php-cs-fixer fix ./
   only:
     - merge_requests
     - main
