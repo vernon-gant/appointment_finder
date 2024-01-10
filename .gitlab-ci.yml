@@ -77,6 +77,6 @@ build_backend:
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
   script:
-    - docker info
+    - cd backend
     - docker build -t $BACKEND_IMAGE_TAG ./backend/docker/prod/php-fpm
     - docker push $BACKEND_IMAGE_TAG
